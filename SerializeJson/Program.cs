@@ -14,18 +14,17 @@ namespace SerializeJson
                 Author = "Sherlock Holmes"
             };
 
+            var convertedObjectToJsonStream = myFavoriteBook.SerializeObject();
             
-            string ConvertedObjecToJsonStream = ConverterJsonBothSide<Book>.SerializeObject(myFavoriteBook);
-            
-            Console.WriteLine($"This is stream Json: {ConvertedObjecToJsonStream}");
+                        
+            Console.WriteLine($"This is stream Json: {convertedObjectToJsonStream}");
+
             try
             {
-                Book ConvertedStreamToBookClass =
-                    (Book) ConverterJsonBothSide<Book>.DesializeObject(ConvertedObjecToJsonStream);
-                
-                Console.WriteLine($"Id: {ConvertedStreamToBookClass.Id}," +
-                                  $" Title: {ConvertedStreamToBookClass.Title}," +
-                                  $" Author: {ConvertedStreamToBookClass.Author}");
+                Book convertedStreamToObject =  (Book)ConverterJsonBothSide.DesializeObject(convertedObjectToJsonStream, typeof(myFavoriteBook));
+                Console.WriteLine($"Id: {convertedStreamToObject.Id}," +
+                                  $" Title: {convertedStreamToObject.Title}," +
+                                  $" Author: {convertedStreamToObject.Author}");
             }
             catch (InvalidCastException e)
             {

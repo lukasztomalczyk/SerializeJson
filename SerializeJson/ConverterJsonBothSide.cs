@@ -2,16 +2,16 @@
 
 namespace SerializeJson
 {
-    static class ConverterJsonBothSide<T> where T : class
+    static class ConverterJsonBothSide
     {
-        public static string SerializeObject(T item)
+        public static string SerializeObject(this object item)
         {
             return JsonConvert.SerializeObject(item);
         }
 
-        public static T DesializeObject(string item)
+        public static object DesializeObject(object item, typeof(type))
         {
-            return (T)JsonConvert.DeserializeObject(item, typeof(T));
+            return JsonConvert.DeserializeObject<type>(item);
         }
     }
 }
