@@ -1,5 +1,4 @@
 ﻿using System;
-using Newtonsoft.Json;
 
 namespace SerializeJson
 {
@@ -35,26 +34,6 @@ namespace SerializeJson
             }
             
             Console.ReadKey();
-        }
-    }
-
-    internal class Book
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-    }
-
-    static class ConverterJsonBothSide<T> where T : class
-    {
-        public static string SerializeObject(T item)
-        {
-            return JsonConvert.SerializeObject(item);
-        }
-
-        public static T DesializeObject(string item)
-        {
-            return (T)JsonConvert.DeserializeObject(item, typeof(T));
         }
     }
 }
