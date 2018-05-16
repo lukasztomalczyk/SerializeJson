@@ -21,7 +21,7 @@ namespace SerializeJson
 
             try
             {
-                Book convertedStreamToObject =  (Book)ConverterJsonBothSide.DesializeObject(convertedObjectToJsonStream, typeof(myFavoriteBook));
+                var convertedStreamToObject =  (Book)ConverterJsonBothSide.DesializeObject(convertedObjectToJsonStream, typeof(Book));
                 Console.WriteLine($"Id: {convertedStreamToObject.Id}," +
                                   $" Title: {convertedStreamToObject.Title}," +
                                   $" Author: {convertedStreamToObject.Author}");

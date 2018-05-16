@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace SerializeJson
 {
@@ -9,9 +10,9 @@ namespace SerializeJson
             return JsonConvert.SerializeObject(item);
         }
 
-        public static object DesializeObject(object item, typeof(type))
+        public static object DesializeObject(string item, Type typeOfObject)
         {
-            return JsonConvert.DeserializeObject<type>(item);
+            return JsonConvert.DeserializeObject(item, typeOfObject);
         }
     }
 }
